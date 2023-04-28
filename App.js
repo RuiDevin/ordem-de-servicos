@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, Alert } from 'react-native';
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
@@ -8,9 +8,26 @@ const Cadastro = () => {
   const [Cpf, setCpf] = useState('');
 
   const handleCadastro = () => {
-    // validar os campos aqui
-    // enviar as informações para o servidor
-    // mostrar uma mensagem de sucesso ao usuário
+    if (nome === '') {
+      Alert.alert('Erro', 'Por favor, insira seu nome.');
+      return;
+    }
+  
+    if (email === '') {
+      Alert.alert('Erro', 'Por favor, insira seu email.');
+      return;
+    }
+  
+    if (senha === '') {
+      Alert.alert('Erro', 'Por favor, insira sua senha.');
+      return;
+    }
+  
+    if (Cpf === '') {
+      Alert.alert('Erro', 'Por favor, insira seu CPF.');
+      return;
+    }
+  
   };
 
   return (
@@ -21,7 +38,7 @@ const Cadastro = () => {
         onChangeText={setNome}
       />
 
-      <Text></Text>Email:</Text>
+      <Text>Email:</Text>
       <TextInput
         value={email}
         onChangeText={setEmail}
@@ -34,7 +51,7 @@ const Cadastro = () => {
         secureTextEntry
       />
 
-      <Text>Cpf</Text>
+      <Text>CPF:</Text>
       <TextInput
         value={Cpf}
         onChangeText={setCpf}
