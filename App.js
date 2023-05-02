@@ -1,4 +1,25 @@
 import { StyleSheet, View, Text } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import Cadastro from './screens/telaCadastro';
+import FreteScreen from './screens/telaFrete';
+import  DashboardScreen from './screens/telaInicial';
+
+
+const Stack = createStackNavigator();
+
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Cadastro" component={Cadastro} />
+        <Stack.Screen name="Inicial" component={DashboardScreen} />
+        <Stack.Screen name="Login" component={App} />
+        <Stack.Screen name="Frete" component={FreteScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
 const HomeScreen = () => {
   return (
