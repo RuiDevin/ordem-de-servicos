@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import Cadastro from './screens/telaCadastro';
 import FreteScreen from './screens/telaFrete';
 import  DashboardScreen from './screens/telaInicial';
+import  Login from './screens/telaLogin';
 
 
 const Stack = createStackNavigator();
@@ -14,7 +15,7 @@ function App() {
       <Stack.Navigator>
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Inicial" component={DashboardScreen} />
-        <Stack.Screen name="Login" component={App} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Frete" component={FreteScreen} />
       </Stack.Navigator>
     </NavigationContainer>

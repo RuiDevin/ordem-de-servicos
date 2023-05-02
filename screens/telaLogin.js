@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
-export default function App() {
+export function App() {
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
 
@@ -68,3 +68,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
 });
+
+export default Login;
