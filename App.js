@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, Button, View, Text } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import Cadastro from './screens/telaCadastro';
@@ -9,10 +9,25 @@ import  Login from './screens/telaLogin';
 
 const Stack = createStackNavigator();
 
-function App() {
+const HomeScreen = ({navigation}) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Ordens de Serviço</Text>
+      <Text style={styles.subtitle}>Bem vindo a RvHardware.</Text>
+      <Text style={styles.subtitle}>Em que podemos ser util?</Text>
+      <Button title= "Ir Cadastro" onPress={() => navigation.navigate('Cadastro')}/>
+      <Button title="Ir Login" onPress={() => navigation.navigate('Login')}/>
+      <Button title="Ir para o Frete" onPress={() => navigation.navigate('Frete')}/>
+    </View>
+  );
+};
+
+
+function Home() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Inicial" component={DashboardScreen} />
         <Stack.Screen name="Login" component={Login} />
@@ -22,15 +37,6 @@ function App() {
   );
 }
 
-const HomeScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Ordens de Serviço</Text>
-      <Text style={styles.subtitle}>Bem vindo a RvHardware.</Text>
-      <Text style={styles.subtitle}>Em que podemos ser util?</Text>
-    </View>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -39,11 +45,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 20,
-  },
-  logo: {
-    width: 200,
-    height: 200,
-    marginBottom: 20,
   },
   title: {
     fontSize: 32,
@@ -57,4 +58,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default Home;
